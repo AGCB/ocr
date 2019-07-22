@@ -5,21 +5,29 @@
 .notepad {
   border: .75px dashed deeppink;
   width: 90vw;
-  height: 50vw;
 }
 
 .tile {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: .2px solid deeppink;
   width: 94px;
   height: 14px;
   font-size: 9px;
+  user-select: none;
+  margin: 0;
+  border: 0;
+}
 
+.tile.active {
+  background-color: red;
 }
 
 .row {
   display: flex;
   flex-direction: row;
+}
+
+button {
+  margin: 20px;
 }

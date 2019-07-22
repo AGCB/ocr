@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Tile = ({tile}) => {
-  return (
-    <div className="tile">
-      <span>{`${tile.x}/${tile.y}`}</span>
-    </div>
+class Tile extends Component {
 
-  )
+  handleHover(x,y) {
+    this.props.handleHover(x,y);
+  }
+
+  render() {
+    const { tile } = this.props;
+    return (
+      <div
+        className={`tile ${tile.p? 'active':'non-active'}`}>
+          <span
+            onMouseEnter={() => this.handleHover(tile.x,tile.y)}>
+            _
+            </span>
+      </div>
+
+    )
+  }
+
 }
 
 export default Tile;

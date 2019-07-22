@@ -20,12 +20,48 @@ class Grid extends Component {
     }
     this.setState({rows: newRows})
   }
+
+
+
+
+
+
+
+
+
+  handleHover = (x,y) => {
+    const { rows } = this.state;
+    console.log('!!!BEFOREHOVERSTATE', rows);
+
+    let r = this.state.rows[x][y];
+    r.p = true;
+  this.setState({ [r]: r });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   render() {
     const { rows } = this.state;
+    const { handleHover } = this;
     return (
       rows.map((row, ind) => {
         return (
-          <Row tiles={rows[ind]} key={ind}/>
+          <Row
+            tiles={rows[ind]}
+            key={ind}
+            handleHover={handleHover}/>
         )
       })
     )
